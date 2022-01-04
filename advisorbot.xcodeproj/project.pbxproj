@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		EB3FB2CA27849BF7007706A7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB3FB2C927849BF7007706A7 /* main.cpp */; };
 		EB3FB2DB2784AEDF007706A7 /* Advisorbot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB3FB2D92784AEDF007706A7 /* Advisorbot.cpp */; };
+		EB3FB2DE2784B36C007706A7 /* CommandParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB3FB2DC2784B36C007706A7 /* CommandParser.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		EB3FB2C927849BF7007706A7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		EB3FB2D92784AEDF007706A7 /* Advisorbot.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Advisorbot.cpp; sourceTree = SOURCE_ROOT; };
 		EB3FB2DA2784AEDF007706A7 /* Advisorbot.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Advisorbot.hpp; sourceTree = SOURCE_ROOT; };
+		EB3FB2DC2784B36C007706A7 /* CommandParser.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CommandParser.cpp; sourceTree = SOURCE_ROOT; };
+		EB3FB2DD2784B36C007706A7 /* CommandParser.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CommandParser.hpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +63,8 @@
 		EB3FB2C827849BF7007706A7 /* advisorbot */ = {
 			isa = PBXGroup;
 			children = (
+				EB3FB2DC2784B36C007706A7 /* CommandParser.cpp */,
+				EB3FB2DD2784B36C007706A7 /* CommandParser.hpp */,
 				EB3FB2D92784AEDF007706A7 /* Advisorbot.cpp */,
 				EB3FB2DA2784AEDF007706A7 /* Advisorbot.hpp */,
 				EB3FB2C927849BF7007706A7 /* main.cpp */,
@@ -125,6 +130,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB3FB2DB2784AEDF007706A7 /* Advisorbot.cpp in Sources */,
+				EB3FB2DE2784B36C007706A7 /* CommandParser.cpp in Sources */,
 				EB3FB2CA27849BF7007706A7 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
