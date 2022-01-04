@@ -16,12 +16,11 @@ public:
     // Default constructor
     CommandParser() = default;
     
-    /*
-     Parse a command string into multiple separate strings making up the entire command.
-     */
-    static std::vector<std::string> parse(const std::string& command);
 private:
-    
+    /*
+     Tokenize a command string.
+     */
+    static std::vector<std::string> tokenize(const std::string& command, char separator);
 };
 
 #endif /* CommandParser_hpp */

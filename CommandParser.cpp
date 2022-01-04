@@ -10,11 +10,10 @@
 /*
  parse function
  */
-std::vector<std::string> CommandParser::parse(const std::string& command) {
+std::vector<std::string> CommandParser::tokenize(const std::string& command, char separator) {
     std::vector<std::string> tokens;
     int start, end;
     std::string token;
-    char separator = ' ';
     
     // Set the starting index to the first character that is not the separator
      start = (int) command.find_first_not_of(separator, 0);
