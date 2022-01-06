@@ -31,6 +31,7 @@
 		EB3FB2DA2784AEDF007706A7 /* Advisorbot.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Advisorbot.hpp; sourceTree = SOURCE_ROOT; };
 		EB3FB2DC2784B36C007706A7 /* CommandParser.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CommandParser.cpp; sourceTree = SOURCE_ROOT; };
 		EB3FB2DD2784B36C007706A7 /* CommandParser.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CommandParser.hpp; sourceTree = SOURCE_ROOT; };
+		EB3FB2DF27871ABD007706A7 /* Command.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Command.hpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +64,7 @@
 		EB3FB2C827849BF7007706A7 /* advisorbot */ = {
 			isa = PBXGroup;
 			children = (
+				EB3FB2DF27871ABD007706A7 /* Command.hpp */,
 				EB3FB2DC2784B36C007706A7 /* CommandParser.cpp */,
 				EB3FB2DD2784B36C007706A7 /* CommandParser.hpp */,
 				EB3FB2D92784AEDF007706A7 /* Advisorbot.cpp */,
