@@ -7,11 +7,20 @@
 
 #include "CommandParser.hpp"
 
+#include "HelpCommand.hpp"
+#include "ProdCommand.hpp"
+#include "MinCommand.hpp"
+#include "MaxCommand.hpp"
+#include "AvgCommand.hpp"
+#include "PredictCommand.hpp"
+#include "TimeCommand.hpp"
+#include "StepCommand.hpp"
+
 /*
  Get a Command from a command string.
  */
 Command* CommandParser::getCommand(const std::string& commandString) {
-    Command* command = nullptr;
+    Command* nop_command = nullptr;
     // Tokenize the command string
     std::vector<std::string> commandBits = CommandParser::tokenize(commandString, ' ');
     
@@ -21,16 +30,19 @@ Command* CommandParser::getCommand(const std::string& commandString) {
     for (int i = 1; i < commandBits.size(); ++i)
         commandParameters.push_back(commandBits[i]);
     
-//    if (commandBits[0] == "help") // Instantiate help command
-//    else if (commandBits[0] == "prod")  // Instantiate prod command
-//    else if (commandBits[0] == "min")  // Instantiate min command
-//    else if (commandBits[0] == "max")  // Instantiate max command
-//    else if (commandBits[0] == "avg")  // Instantiate avg command
-//    else if (commandBits[0] == "predict")  // Instantiate predict command
-//    else if (commandBits[0] == "time")  // Instantiate time command
-//    else if (commandBits[0] == "step")  // Instantiate step command
+    // Instantiate a command on the heap based on the command name entered by the user
+    if (commandBits[0] == "help")           nop_command = new HelpCommand{commandParameters};
+    else if (commandBits[0] == "prod")      nop_command = new ProdCommand{commandParameters};
+    else if (commandBits[0] == "min")       nop_command = new MinCommand{commandParameters};
+    else if (commandBits[0] == "max")       nop_command = new MaxCommand{commandParameters};
+    else if (commandBits[0] == "avg")       nop_command = new AvgCommand{commandParameters};
+    else if (commandBits[0] == "predict")   nop_command = new PredictCommand{commandParameters};
+    else if (commandBits[0] == "time")      nop_command = new TimeCommand{commandParameters};
+    else if (commandBits[0] == "step")      nop_command = new StepCommand{commandParameters};
     
-    return command;
+    // There's a chance that a nullpointer could be returned
+    // In that case it simply means the given command is not correct
+    return nop_command;
 }
 
 /*
