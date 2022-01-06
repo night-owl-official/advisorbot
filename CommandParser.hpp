@@ -11,10 +11,18 @@
 #include <vector>
 #include <string>
 
+#include "Command.hpp"
+
 class CommandParser {
 public:
-    // Default constructor
-    CommandParser() = default;
+    // Static class
+    CommandParser() = delete;
+    ~CommandParser() = delete;
+    
+    /*
+     Get a Command from a command string.
+     */
+    static Command* getCommand(const std::string& commandString);
     
 private:
     /*

@@ -8,7 +8,14 @@
 #include "CommandParser.hpp"
 
 /*
- parse function
+ Get a Command from a command string.
+ */
+Command* getCommand(const std::string& commandString) {
+    return nullptr;
+}
+
+/*
+ Tokenize a command string.
  */
 std::vector<std::string> CommandParser::tokenize(const std::string& command, char separator) {
     std::vector<std::string> tokens;
