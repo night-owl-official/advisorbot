@@ -10,8 +10,27 @@
 /*
  Get a Command from a command string.
  */
-Command* getCommand(const std::string& commandString) {
-    return nullptr;
+Command* CommandParser::getCommand(const std::string& commandString) {
+    Command* command = nullptr;
+    // Tokenize the command string
+    std::vector<std::string> commandBits = CommandParser::tokenize(commandString, ' ');
+    
+    // Extract the command parameters from the tokenized string
+    // Start counting from one because we don't want the command name
+    std::vector<std::string> commandParameters;
+    for (int i = 1; i < commandBits.size(); ++i)
+        commandParameters.push_back(commandBits[i]);
+    
+//    if (commandBits[0] == "help") // Instantiate help command
+//    else if (commandBits[0] == "prod")  // Instantiate prod command
+//    else if (commandBits[0] == "min")  // Instantiate min command
+//    else if (commandBits[0] == "max")  // Instantiate max command
+//    else if (commandBits[0] == "avg")  // Instantiate avg command
+//    else if (commandBits[0] == "predict")  // Instantiate predict command
+//    else if (commandBits[0] == "time")  // Instantiate time command
+//    else if (commandBits[0] == "step")  // Instantiate step command
+    
+    return command;
 }
 
 /*
