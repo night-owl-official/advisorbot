@@ -19,6 +19,7 @@
 		EB3FB2F427874A0A007706A7 /* TimeCommand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB3FB2F227874A0A007706A7 /* TimeCommand.cpp */; };
 		EB3FB2F727874A17007706A7 /* StepCommand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB3FB2F527874A17007706A7 /* StepCommand.cpp */; };
 		EB3FB2FA27889FE0007706A7 /* CSVParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB3FB2F827889FE0007706A7 /* CSVParser.cpp */; };
+		EB3FB2FD2788A128007706A7 /* OrderBookEntry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB3FB2FB2788A128007706A7 /* OrderBookEntry.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -59,6 +60,8 @@
 		EB3FB2F627874A17007706A7 /* StepCommand.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StepCommand.hpp; sourceTree = SOURCE_ROOT; };
 		EB3FB2F827889FE0007706A7 /* CSVParser.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CSVParser.cpp; sourceTree = SOURCE_ROOT; };
 		EB3FB2F927889FE0007706A7 /* CSVParser.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CSVParser.hpp; sourceTree = SOURCE_ROOT; };
+		EB3FB2FB2788A128007706A7 /* OrderBookEntry.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = OrderBookEntry.cpp; sourceTree = SOURCE_ROOT; };
+		EB3FB2FC2788A128007706A7 /* OrderBookEntry.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = OrderBookEntry.hpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,8 @@
 		EB3FB2C827849BF7007706A7 /* advisorbot */ = {
 			isa = PBXGroup;
 			children = (
+				EB3FB2FB2788A128007706A7 /* OrderBookEntry.cpp */,
+				EB3FB2FC2788A128007706A7 /* OrderBookEntry.hpp */,
 				EB3FB2F827889FE0007706A7 /* CSVParser.cpp */,
 				EB3FB2F927889FE0007706A7 /* CSVParser.hpp */,
 				EB3FB2F527874A17007706A7 /* StepCommand.cpp */,
@@ -180,6 +185,7 @@
 				EB3FB2E227874998007706A7 /* HelpCommand.cpp in Sources */,
 				EB3FB2F427874A0A007706A7 /* TimeCommand.cpp in Sources */,
 				EB3FB2DB2784AEDF007706A7 /* Advisorbot.cpp in Sources */,
+				EB3FB2FD2788A128007706A7 /* OrderBookEntry.cpp in Sources */,
 				EB3FB2DE2784B36C007706A7 /* CommandParser.cpp in Sources */,
 				EB3FB2EE278749E8007706A7 /* AvgCommand.cpp in Sources */,
 				EB3FB2CA27849BF7007706A7 /* main.cpp in Sources */,
