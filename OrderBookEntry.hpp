@@ -39,7 +39,9 @@ public:
     /*
      Compare two order books entries by price ascending/descending.
      */
-    static bool compareByPrice(const OrderBookEntry& entry1, const OrderBookEntry& entry2, bool ascending = true);
+    inline static bool compareByPrice(const OrderBookEntry& entry1, const OrderBookEntry& entry2, bool ascending = true) {
+        return (ascending) ? entry1.m_price < entry2.m_price : entry1.m_price > entry2.m_price;
+    }
     
 private:
     double m_price;
