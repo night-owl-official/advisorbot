@@ -25,7 +25,7 @@ public:
     /*
      Take a csv line and turns it into bits where separator happens.
      */
-    static std::vector<std::string> tokenize(const std::string& csvLine, char separator);
+    static std::vector<std::string> tokenize(const std::string& csvLine, char separator = ' ');
     
     /*
      Turn tokens for one order into an OrderBookEntry.
