@@ -12,8 +12,8 @@ HelpCommand::HelpCommand(const std::vector<std::string>& cmdParams) : Command(cm
 /*
  Run the command.
  */
-void HelpCommand::run() {
-    
+bool HelpCommand::run() {
+    return true;
 }
 
 /*

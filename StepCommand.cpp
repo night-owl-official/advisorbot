@@ -12,8 +12,8 @@ StepCommand::StepCommand(const std::vector<std::string>& cmdParams) : Command(cm
 /*
  Run the command.
  */
-void StepCommand::run() {
-    
+bool StepCommand::run() {
+    return true;
 }
 
 /*

@@ -17,7 +17,7 @@ public:
     /*
      Run the command.
      */
-    void run() override;
+    bool run() override;
 protected:
     /*
      Verify that the parameters are valid for this command.

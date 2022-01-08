@@ -21,7 +21,7 @@ public:
     /*
      Run the command.
      */
-    virtual void run() = 0;
+    virtual bool run() = 0;
 
 protected:
     /*

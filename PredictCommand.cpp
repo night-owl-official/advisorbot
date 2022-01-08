@@ -12,8 +12,8 @@ PredictCommand::PredictCommand(const std::vector<std::string>& cmdParams) : Comm
 /*
  Run the command.
  */
-void PredictCommand::run() {
-    
+bool PredictCommand::run() {
+    return true;
 }
 
 /*

@@ -12,8 +12,8 @@ MinCommand::MinCommand(const std::vector<std::string>& cmdParams) : Command(cmdP
 /*
  Run the command.
  */
-void MinCommand::run() {
-    
+bool MinCommand::run() {
+    return true;
 }
 
 /*

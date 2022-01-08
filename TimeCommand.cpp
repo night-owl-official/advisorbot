@@ -12,8 +12,8 @@ TimeCommand::TimeCommand(const std::vector<std::string>& cmdParams) : Command(cm
 /*
  Run the command.
  */
-void TimeCommand::run() {
-    
+bool TimeCommand::run() {
+    return true;
 }
 
 /*

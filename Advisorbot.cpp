@@ -64,6 +64,7 @@ void AdvisorBot::processUserInput(const std::string& input) {
     }
     
     // Use the command.
+    op_commandToExecute->run();
     
     // Free up the memory after the command has been used.
     delete op_commandToExecute;

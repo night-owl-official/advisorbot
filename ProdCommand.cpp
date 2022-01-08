@@ -12,8 +12,8 @@ ProdCommand::ProdCommand(const std::vector<std::string>& cmdParams) : Command(cm
 /*
  Run the command.
  */
-void ProdCommand::run() {
-    
+bool ProdCommand::run() {
+    return true;
 }
 
 /*
