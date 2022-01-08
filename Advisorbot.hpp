@@ -15,8 +15,12 @@
 class AdvisorBot {
 public:
     // Constructor, initializing the orderbook with a filepath to the csv file
-    // Also set the current time to the earliest time.
     AdvisorBot(const std::string& csvFilepath);
+    
+    /*
+     Call to start advisorbot.
+     */
+    void init();
     
 private:
     OrderBook m_orderBook;      // Instance of an orderbook.
