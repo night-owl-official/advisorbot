@@ -36,7 +36,6 @@ std::vector<OrderBookEntry> CSVParser::readCSV(const std::string& csvFilename) {
          }
      }
 
-     std::cout << "CSVParser::readCSV Read " << entries.size() << " entries"  << std::endl;
      return entries;
 }
 
