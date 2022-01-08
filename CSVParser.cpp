@@ -8,14 +8,36 @@
 #include "CSVParser.hpp"
 
 #include <vector>
+#include <fstream>
 #include <iostream>
 
 /*
  Read CSV file while parsing all its lines into OrderBookEntries.
  */
 std::vector<OrderBookEntry> CSVParser::readCSV(const std::string& csvFilename) {
-    std::vector<OrderBookEntry> temp{};
-    return temp;
+    std::vector<OrderBookEntry> entries;
+
+    // Open an input file stream using the given filename.
+     std::ifstream csvFile{csvFilename};
+     std::string line;
+    
+    // Make sure the file was opened before reading.
+     if (csvFile.is_open()) {
+         // Keep reading the file until the end of the file
+         // and store every newly read line into the string line.
+         while(std::getline(csvFile, line)) {
+             try {
+                 // Try to convert a csv line into an order book an entry.
+                entries.push_back(tokensToOBE(tokenize(line)));
+             } catch(const std::exception& e) {
+                 // Something went wrong while trying to convert a line into an OBE.
+                 std::cout << "CSVParser::readCSV Bad data!"  << std::endl;
+             }
+         }
+     }
+
+     std::cout << "CSVParser::readCSV Read " << entries.size() << " entries"  << std::endl;
+     return entries;
 }
 
 /*
