@@ -61,7 +61,7 @@ std::vector<OrderBookEntry> OrderBook::getOrders(OrderBookType type,
  Return the earliest time in the orderbook.
  */
 std::string OrderBook::getEarliestTime() {
-    return "";
+    return m_orders[0].getTimestamp();
 }
 
 /*
@@ -70,7 +70,23 @@ std::string OrderBook::getEarliestTime() {
  If there is no next timestamp, wraps around to the start.
  */
 std::string OrderBook::getNextTime(const std::string& timestamp) {
-    return "";
+    std::string nextTimestamp = "";
+    std::string currentTimestamp = "";
+    
+    // Find the first timestamp greater than the given timestamp
+    for (const OrderBookEntry& obe : m_orders) {
+        currentTimestamp = obe.getTimestamp();
+        if (currentTimestamp > timestamp) {
+            nextTimestamp = currentTimestamp;
+            break;
+        }
+    }
+    
+    // No timestamp is greater than the given timestamp, loop back to the beginning
+    // of the dataset as the given timestamp was the last timestamp.
+    if (nextTimestamp == "")   nextTimestamp = m_orders[0].getTimestamp();
+    
+    return nextTimestamp;
 }
 
 /*
