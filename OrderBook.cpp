@@ -41,8 +41,20 @@ std::vector<std::string> OrderBook::getKnownProducts() {
 std::vector<OrderBookEntry> OrderBook::getOrders(OrderBookType type,
                                                  const std::string& product,
                                                  const std::string& timestamp) {
-    std::vector<OrderBookEntry> temp{};
-    return temp;
+    std::vector<OrderBookEntry> filtered_orders;
+    
+    // Go through the orders and only select orders
+    // that match the given filters.
+    for (const OrderBookEntry& obe : m_orders) {
+        
+        if (obe.getOrderBookType() == type &&
+            obe.getProduct() == product &&
+            obe.getTimestamp() == timestamp ) {
+                filtered_orders.push_back(obe);
+            }
+    }
+    
+    return filtered_orders;
 }
 
 /*
