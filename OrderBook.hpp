@@ -46,12 +46,12 @@ public:
     /*
      Return the highest price in the order book.
      */
-    double getHighestPrice(const std::vector<OrderBookEntry>& orders);
+    double getHighestPrice();
     
     /*
      Return the lowest price in the order book.
      */
-    double getLowestPrice(const std::vector<OrderBookEntry>& orders);
+    double getLowestPrice();
 
 private:
     std::vector<OrderBookEntry> m_orders;   // Store all the orderbook entries
