@@ -11,6 +11,7 @@
 #include "Command.hpp"
 
 #include <string>
+#include <map>
 
 class HelpCommand : public Command {
 public:
@@ -21,17 +22,6 @@ public:
      */
     bool run() override;
     
-private:
-    /*
-     Display all the available commands.
-     */
-    void runBasicHelp() const;
-    
-    /*
-     Display help on the given command.
-     */
-    void runCommandHelp() const;
-    
 protected:
     /*
      Verify that the parameters are valid for this command.
@@ -39,7 +29,22 @@ protected:
     bool areParamsValid() override;
     
 private:
+    /*
+     Display all the available commands.
+     */
+    void runBasicHelp() const;
+    
+    /*
+     Initialize the commands help map.
+     */
+    void initCommandsHelpMap();
+    
+private:
     static const std::string AVAILABLE_COMMANDS[9]; // List of available commands.
+    
+private:
+    std::map<std::string, std::string> m_commandsHelpMap;   // Maps command to help description.
+    std::string m_currentValidParameter;                    // The command the user needs help with.
 };
 
 #endif /* HelpCommand_hpp */

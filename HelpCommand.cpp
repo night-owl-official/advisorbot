@@ -22,7 +22,10 @@ const std::string HelpCommand::AVAILABLE_COMMANDS[9] = {
     "step"
 };
 
-HelpCommand::HelpCommand(const std::vector<std::string>& cmdParams) : Command(cmdParams) {}
+HelpCommand::HelpCommand(const std::vector<std::string>& cmdParams) : Command(cmdParams) {
+    // Initialize commands' help map.
+    initCommandsHelpMap();
+}
 
 /*
  Run the command.
@@ -37,8 +40,8 @@ bool HelpCommand::run() {
     
     // Valid parameters.
     // Basic help when no parameters and help <cmd> for one parameter.
-    if (m_params.size() < 1)        runBasicHelp();
-    else if (m_params.size() == 1)  runCommandHelp();
+    if (m_params.size() == 0)       runBasicHelp();
+    else if (m_params.size() == 1)  std::cout << m_commandsHelpMap.at(m_currentValidParameter) << std::endl;
     
     return paramsValid;
 }
@@ -59,7 +62,11 @@ bool HelpCommand::areParamsValid() {
             if (i < 2) continue;
             
             // Check whether the parameter is valid or not.
-            if (m_params[0] == AVAILABLE_COMMANDS[i])   return true;
+            if (m_params[0] == AVAILABLE_COMMANDS[i]) {
+                // Store the current valid parameter.
+                m_currentValidParameter = m_params[0];
+                return true;
+            }
         }
         
         // When we get here it means that we had one parameter to the function and it was wrong.
@@ -94,8 +101,14 @@ void HelpCommand::runBasicHelp() const {
 }
 
 /*
- Display help on the given command.
+ Initialize the commands help map.
  */
-void HelpCommand::runCommandHelp() const {
-    
+void HelpCommand::initCommandsHelpMap() {
+    m_commandsHelpMap[AVAILABLE_COMMANDS[2]] = "prod -> List the available products";
+    m_commandsHelpMap[AVAILABLE_COMMANDS[3]] = "min ETH/BTC ask -> minimum ETH/BTC ask in the current timestep";
+    m_commandsHelpMap[AVAILABLE_COMMANDS[4]] = "max ETH/BTC bid -> maximum ETH/BTC bid in the current timestep";
+    m_commandsHelpMap[AVAILABLE_COMMANDS[5]] = "avg ETH/BTC ask 10 -> average ETH/BTC ask price over the last 10 timesteps";
+    m_commandsHelpMap[AVAILABLE_COMMANDS[6]] = "predict max ETH/BTC bid -> predict the max ETH/BTC bid price in the next timestep";
+    m_commandsHelpMap[AVAILABLE_COMMANDS[7]] = "time -> state the current time in the dataset e.g. 2020/03/17 17:01:24";
+    m_commandsHelpMap[AVAILABLE_COMMANDS[8]] = "step -> move to the next timestep";
 }
