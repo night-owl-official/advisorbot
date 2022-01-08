@@ -9,6 +9,8 @@
 
 #include "CSVParser.hpp"
 
+#include <map>
+
 /*
  Initialize order book from a csv file.
  */
@@ -21,8 +23,16 @@ OrderBook::OrderBook(const std::string& filename) {
  Return a vector of all known products in the dataset.
  */
 std::vector<std::string> OrderBook::getKnownProducts() {
-    std::vector<std::string> temp{};
-    return temp;
+    std::vector<std::string> products;
+    std::map<std::string, bool> prodMap;
+
+    // Use a map with the product as key to avoid duplicates.
+    for (const OrderBookEntry& obe : m_orders)  prodMap[obe.getProduct()] = true;
+    
+    // Now flatten the map to a vector of strings
+    for (const auto& e : prodMap)   products.push_back(e.first);
+
+    return products;
 }
 
 /*
