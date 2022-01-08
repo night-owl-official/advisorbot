@@ -20,6 +20,18 @@ public:
      Run the command.
      */
     bool run() override;
+    
+private:
+    /*
+     Display all the available commands.
+     */
+    void runBasicHelp() const;
+    
+    /*
+     Display help on the given command.
+     */
+    void runCommandHelp() const;
+    
 protected:
     /*
      Verify that the parameters are valid for this command.
