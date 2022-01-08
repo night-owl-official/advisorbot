@@ -34,6 +34,21 @@ void AdvisorBot::init() {
         std::cout << "user> ";
         std::getline(std::cin, userInput);
         
-        // Process the user input here.
+        // Quit input is processed immediately w/o
+        // the help of the command parser
+        if (userInput == "quit") {
+            std::cout << "advisorbot> Bye! Thanks for using advisorbot!" << std::endl;
+            break;
+        }
+        
+        // Process the user input.
+        processUserInput(userInput);
     }
+}
+
+/*
+ Process the user input and responds accordingly.
+ */
+void AdvisorBot::processUserInput(const std::string& input) {
+    
 }

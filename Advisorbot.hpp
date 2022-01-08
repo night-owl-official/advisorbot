@@ -23,6 +23,12 @@ public:
     void init();
     
 private:
+    /*
+     Process the user input and responds accordingly.
+     */
+    void processUserInput(const std::string& input);
+    
+private:
     OrderBook m_orderBook;      // Instance of an orderbook.
     std::string m_currentTime;  // The current timestamp for the simulation.
 };
