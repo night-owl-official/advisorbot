@@ -13,7 +13,7 @@ MaxCommand::MaxCommand(const std::vector<std::string>& cmdParams) : Command(cmdP
  Run the command.
  */
 bool MaxCommand::run() {
-    
+    return true;
 }
 
 /*
