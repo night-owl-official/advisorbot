@@ -50,5 +50,22 @@ void AdvisorBot::init() {
  Process the user input and responds accordingly.
  */
 void AdvisorBot::processUserInput(const std::string& input) {
+    // Print out the speech mark for the bot.
+    std::cout << "advisorbot> ";
     
+    // Command to execute.
+    Command* op_commandToExecute = CommandParser::getCommand(input);
+    
+    // Check if the command was valid.
+    if (!op_commandToExecute) {
+        std::cout << "Command not found! Please try again" << std::endl;
+        std::cout << "advisorbot> Remember that commands are case sensitive!" << std::endl;
+        return;
+    }
+    
+    // Use the command.
+    
+    // Free up the memory after the command has been used.
+    delete op_commandToExecute;
+    op_commandToExecute = nullptr;
 }
