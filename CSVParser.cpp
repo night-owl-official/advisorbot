@@ -8,6 +8,7 @@
 #include "CSVParser.hpp"
 
 #include <vector>
+#include <iostream>
 
 /*
  Read CSV file while parsing all its lines into OrderBookEntries.
@@ -57,5 +58,30 @@ std::vector<std::string> CSVParser::tokenize(const std::string& csvLine, char se
  Turn tokens for one order into an OrderBookEntry.
  */
 OrderBookEntry CSVParser::tokensToOBE(const std::vector<std::string>& tokens) {
-    return OrderBookEntry{0.0, 0.0, "", "", OrderBookType::unknown};
+    double price;
+    double amount;
+    
+    // A well formed line from the exchange csv would contain 5 tokens
+    // if we have less or more than that then it's not a good line.
+    if (tokens.size() != 5) {
+        std::cout << "CSVParser::tokensToOBE Bad line!" << std::endl;
+        throw std::exception{};
+    }
+    
+    // We have 5 tokens.
+    try {
+        // Try to convert price and amount tokens to double.
+        price = std::stod(tokens[3]);
+        amount = std::stod(tokens[4]);
+    } catch(const std::exception& e) {
+        // Failed to convert token string to double
+        std::cout << "CSVReader::stringsToOBE Bad float! " << tokens[3]<< std::endl;
+        std::cout << "CSVReader::stringsToOBE Bad float! " << tokens[4]<< std::endl;
+        throw;
+    }
+
+    // Construct an Order Book Entry and return it.
+    return OrderBookEntry {price, amount,
+                        tokens[0], tokens[1],
+                        OrderBookEntry::stringToOrderBookType(tokens[2])};
 }
