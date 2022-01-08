@@ -7,11 +7,14 @@
 
 #include "OrderBook.hpp"
 
+#include "CSVParser.hpp"
+
 /*
  Initialize order book from a csv file.
  */
 OrderBook::OrderBook(const std::string& filename) {
-    
+    // Read in orders from the CSV file.
+    m_orders = CSVParser::readCSV(filename);
 }
 
 /*
