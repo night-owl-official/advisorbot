@@ -25,6 +25,15 @@ public:
                    OrderBookType orderType);
     
     /*
+     Getters
+     */
+    inline double getPrice() const { return m_price; }
+    inline double getAmount() const { return m_amount; }
+    inline std::string getTimestamp() const { return m_timestamp; }
+    inline std::string getProduct() const { return m_product; }
+    inline OrderBookType getOrderBookType() const { return m_orderType; }
+    
+    /*
      Convert a string to an order book type e.g. bid or ask
      */
     static OrderBookType stringToOrderBookType(const std::string& typeString);
