@@ -22,7 +22,7 @@ OrderBook::OrderBook(const std::string& filename) {
 /*
  Return a vector of all known products in the dataset.
  */
-std::vector<std::string> OrderBook::getKnownProducts() {
+std::vector<std::string> OrderBook::getKnownProducts() const {
     std::vector<std::string> products;
     std::map<std::string, bool> prodMap;
 
@@ -40,7 +40,7 @@ std::vector<std::string> OrderBook::getKnownProducts() {
  */
 std::vector<OrderBookEntry> OrderBook::getOrders(OrderBookType type,
                                                  const std::string& product,
-                                                 const std::string& timestamp) {
+                                                 const std::string& timestamp) const {
     std::vector<OrderBookEntry> filtered_orders;
     
     // Go through the orders and only select orders
@@ -60,7 +60,7 @@ std::vector<OrderBookEntry> OrderBook::getOrders(OrderBookType type,
 /*
  Return the earliest time in the orderbook.
  */
-std::string OrderBook::getEarliestTime() {
+std::string OrderBook::getEarliestTime() const {
     return m_orders[0].getTimestamp();
 }
 
@@ -69,7 +69,7 @@ std::string OrderBook::getEarliestTime() {
  sent time in the orderbook.
  If there is no next timestamp, wraps around to the start.
  */
-std::string OrderBook::getNextTime(const std::string& timestamp) {
+std::string OrderBook::getNextTime(const std::string& timestamp) const {
     std::string nextTimestamp = "";
     std::string currentTimestamp = "";
     
@@ -92,7 +92,7 @@ std::string OrderBook::getNextTime(const std::string& timestamp) {
 /*
  Return the highest price in the order book.
  */
-double OrderBook::getHighestPrice() {
+double OrderBook::getHighestPrice() const {
     // First max price is the first order in the orderbook.
     double max = m_orders[0].getPrice();
     
@@ -107,7 +107,7 @@ double OrderBook::getHighestPrice() {
 /*
  Return the lowest price in the order book.
  */
-double OrderBook::getLowestPrice() {
+double OrderBook::getLowestPrice() const {
     // First min price is the first order in the orderbook.
     double min = m_orders[0].getPrice();
     

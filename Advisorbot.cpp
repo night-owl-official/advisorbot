@@ -64,7 +64,7 @@ void AdvisorBot::processUserInput(const std::string& input) {
     }
     
     // Use the command.
-    if (!op_commandToExecute->run()) {
+    if (!op_commandToExecute->run(m_orderBook)) {
         // Command parameters were wrong.
         std::cout << "Parameters given to the command invalid!" << std::endl;
         std::cout << "advisorbot> Use help <cmd> to get info on a command" << std::endl;
