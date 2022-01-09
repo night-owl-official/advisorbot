@@ -11,6 +11,8 @@
 #include <vector>
 #include <string>
 
+#include "OrderBook.hpp"
+
 class Command {
 public:
     Command(const std::vector<std::string>& params)
@@ -21,7 +23,7 @@ public:
     /*
      Run the command.
      */
-    virtual bool run() = 0;
+    virtual bool run(const OrderBook& orderBook) = 0;
 
 protected:
     /*

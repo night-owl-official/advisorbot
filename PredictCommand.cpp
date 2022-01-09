@@ -12,7 +12,7 @@ PredictCommand::PredictCommand(const std::vector<std::string>& cmdParams) : Comm
 /*
  Run the command.
  */
-bool PredictCommand::run() {
+bool PredictCommand::run(const OrderBook& orderBook) {
     return true;
 }
 

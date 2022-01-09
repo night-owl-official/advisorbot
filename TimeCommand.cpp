@@ -12,7 +12,7 @@ TimeCommand::TimeCommand(const std::vector<std::string>& cmdParams) : Command(cm
 /*
  Run the command.
  */
-bool TimeCommand::run() {
+bool TimeCommand::run(const OrderBook& orderBook) {
     return true;
 }
 

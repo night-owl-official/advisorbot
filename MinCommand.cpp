@@ -12,7 +12,7 @@ MinCommand::MinCommand(const std::vector<std::string>& cmdParams) : Command(cmdP
 /*
  Run the command.
  */
-bool MinCommand::run() {
+bool MinCommand::run(const OrderBook& orderBook) {
     return true;
 }
 

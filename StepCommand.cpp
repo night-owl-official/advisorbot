@@ -12,7 +12,7 @@ StepCommand::StepCommand(const std::vector<std::string>& cmdParams) : Command(cm
 /*
  Run the command.
  */
-bool StepCommand::run() {
+bool StepCommand::run(const OrderBook& orderBook) {
     return true;
 }
 

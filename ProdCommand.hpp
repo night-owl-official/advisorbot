@@ -17,7 +17,7 @@ public:
     /*
      Run the command.
      */
-    bool run() override;
+    bool run(const OrderBook& orderBook) override;
 protected:
     /*
      Verify that the parameters are valid for this command.

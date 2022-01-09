@@ -12,7 +12,7 @@ ProdCommand::ProdCommand(const std::vector<std::string>& cmdParams) : Command(cm
 /*
  Run the command.
  */
-bool ProdCommand::run() {
+bool ProdCommand::run(const OrderBook& orderBook) {
     return true;
 }
 

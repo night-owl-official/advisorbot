@@ -30,7 +30,7 @@ HelpCommand::HelpCommand(const std::vector<std::string>& cmdParams) : Command(cm
 /*
  Run the command.
  */
-bool HelpCommand::run() {
+bool HelpCommand::run(const OrderBook& orderBook) {
     // Check the validity of the parameters.
     bool paramsValid = areParamsValid();
     

@@ -10,7 +10,6 @@
 
 #include "Command.hpp"
 
-#include <string>
 #include <map>
 
 class HelpCommand : public Command {
@@ -20,7 +19,7 @@ public:
     /*
      Run the command.
      */
-    bool run() override;
+    bool run(const OrderBook& orderBook) override;
     
 protected:
     /*
