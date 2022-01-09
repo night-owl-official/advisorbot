@@ -77,14 +77,14 @@ std::string OrderBook::getNextTime(const std::string& timestamp) const {
 }
 
 /*
- Return the highest price in the order book.
+ Return the highest price in the given order book.
  */
-double OrderBook::getHighestPrice() const {
+double OrderBook::getHighestPrice(const std::vector<OrderBookEntry>& orders) {
     // First max price is the first order in the orderbook.
-    double max = m_orders[0].getPrice();
+    double max = orders[0].getPrice();
     
     // Look into all the orders and find the max price in the orderbook.
-    for (const OrderBookEntry& obe : m_orders) {
+    for (const OrderBookEntry& obe : orders) {
         if (obe.getPrice() > max)   max = obe.getPrice();
     }
     
@@ -92,14 +92,14 @@ double OrderBook::getHighestPrice() const {
 }
 
 /*
- Return the lowest price in the order book.
+ Return the lowest price in the given order book.
  */
-double OrderBook::getLowestPrice() const {
+double OrderBook::getLowestPrice(const std::vector<OrderBookEntry>& orders) {
     // First min price is the first order in the orderbook.
-    double min = m_orders[0].getPrice();
+    double min = orders[0].getPrice();
     
     // Look into all the orders and find the min price in the orderbook.
-    for (const OrderBookEntry& obe : m_orders) {
+    for (const OrderBookEntry& obe : orders) {
         if (obe.getPrice() < min)   min = obe.getPrice();
     }
     

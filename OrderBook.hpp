@@ -50,15 +50,16 @@ public:
      */
     std::string getNextTime(const std::string& timestamp) const;
     
+public:
     /*
-     Return the highest price in the order book.
+     Return the highest price in the given order book.
      */
-    double getHighestPrice() const;
+    static double getHighestPrice(const std::vector<OrderBookEntry>& orders);
     
     /*
-     Return the lowest price in the order book.
+     Return the lowest price in the given order book.
      */
-    double getLowestPrice() const;
+    static double getLowestPrice(const std::vector<OrderBookEntry>& orders);
     
 private:
     /*
