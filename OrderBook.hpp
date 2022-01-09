@@ -20,6 +20,11 @@ public:
     OrderBook(const std::string& filename);
     
     /*
+     Getters
+     */
+    inline std::string getCurrentTimestamp() const { return m_currentTimestamp; }
+    
+    /*
      Return a vector of all known products in the dataset.
      */
     std::vector<std::string> getKnownProducts() const;
@@ -55,6 +60,7 @@ public:
 
 private:
     std::vector<OrderBookEntry> m_orders;   // Store all the orderbook entries
+    std::string m_currentTimestamp;         // The current timestamp in the orderbook.
 };
 
 #endif /* OrderBook_hpp */

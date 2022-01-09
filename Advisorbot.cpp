@@ -19,9 +19,6 @@ AdvisorBot::AdvisorBot(const std::string& csvFilepath):
  Call to start advisorbot.
  */
 void AdvisorBot::init() {
-    // Initialize the timestamp to the earliest in the order book.
-    m_currentTime = m_orderBook.getEarliestTime();
-    
     // User input
     std::string userInput = "";
     

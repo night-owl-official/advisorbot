@@ -30,7 +30,6 @@ private:
     
 private:
     OrderBook m_orderBook;      // Instance of an orderbook.
-    std::string m_currentTime;  // The current timestamp for the simulation.
 };
 
 #endif /* Advisorbot_hpp */
