@@ -25,7 +25,7 @@ protected:
     /*
      Verify that the parameters are valid for this command.
      */
-    bool areParamsValid() override;
+    bool areParamsValid(const OrderBook& orderBook) override;
     
 private:
     /*

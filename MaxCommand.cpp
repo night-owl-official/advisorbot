@@ -19,6 +19,6 @@ bool MaxCommand::run(const OrderBook& orderBook) {
 /*
  Verify that the parameters are valid for this command.
  */
-bool MaxCommand::areParamsValid() {
+bool MaxCommand::areParamsValid(const OrderBook& orderBook) {
     return true;
 }

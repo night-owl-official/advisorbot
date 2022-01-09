@@ -19,6 +19,6 @@ bool PredictCommand::run(const OrderBook& orderBook) {
 /*
  Verify that the parameters are valid for this command.
  */
-bool PredictCommand::areParamsValid() {
+bool PredictCommand::areParamsValid(const OrderBook& orderBook) {
     return true;
 }

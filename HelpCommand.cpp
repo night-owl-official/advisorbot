@@ -32,7 +32,7 @@ HelpCommand::HelpCommand(const std::vector<std::string>& cmdParams) : Command(cm
  */
 bool HelpCommand::run(const OrderBook& orderBook) {
     // Check the validity of the parameters.
-    bool paramsValid = areParamsValid();
+    bool paramsValid = areParamsValid(orderBook);
     
     // Invalid parameters.
     // Don't continue execution.
@@ -49,7 +49,7 @@ bool HelpCommand::run(const OrderBook& orderBook) {
 /*
  Verify that the parameters are valid for this command.
  */
-bool HelpCommand::areParamsValid() {
+bool HelpCommand::areParamsValid(const OrderBook& orderBook) {
     // More than one parameter is incorrect.
     if (m_params.size() > 1)    return false;
     

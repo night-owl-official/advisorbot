@@ -29,7 +29,7 @@ protected:
     /*
      Verify that the parameters are valid for this command.
      */
-    virtual bool areParamsValid() = 0;
+    virtual bool areParamsValid(const OrderBook& orderBook) = 0;
     
 protected:
     std::vector<std::string> m_params; // Command parameters

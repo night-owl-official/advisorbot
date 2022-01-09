@@ -15,7 +15,7 @@ ProdCommand::ProdCommand(const std::vector<std::string>& cmdParams) : Command(cm
  Run the command.
  */
 bool ProdCommand::run(const OrderBook& orderBook) {
-    bool validParams = areParamsValid();
+    bool validParams = areParamsValid(orderBook);
     
     // Invalid parameters
     if (!validParams)   return validParams;
@@ -39,7 +39,7 @@ bool ProdCommand::run(const OrderBook& orderBook) {
 /*
  Verify that the parameters are valid for this command.
  */
-bool ProdCommand::areParamsValid() {
+bool ProdCommand::areParamsValid(const OrderBook& orderBook) {
     // No parameters allowed for this command
     return m_params.size() == 0;
 }

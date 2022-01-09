@@ -15,7 +15,7 @@ StepCommand::StepCommand(const std::vector<std::string>& cmdParams) : Command(cm
  Run the command.
  */
 bool StepCommand::run(const OrderBook& orderBook) {
-    bool validParams = areParamsValid();
+    bool validParams = areParamsValid(orderBook);
     
     // Invalid parameters, return false.
     if (!validParams)   return validParams;
@@ -29,7 +29,7 @@ bool StepCommand::run(const OrderBook& orderBook) {
 /*
  Verify that the parameters are valid for this command.
  */
-bool StepCommand::areParamsValid() {
+bool StepCommand::areParamsValid(const OrderBook& orderBook) {
     // No parameters allowed for this command.
     return m_params.size() == 0;
 }

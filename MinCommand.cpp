@@ -19,7 +19,7 @@ bool MinCommand::run(const OrderBook& orderBook) {
 /*
  Verify that the parameters are valid for this command.
  */
-bool MinCommand::areParamsValid() {
+bool MinCommand::areParamsValid(const OrderBook& orderBook) {
     // Needs exactly 2 parameters.
     if (m_params.size() < 2)    return false;
     

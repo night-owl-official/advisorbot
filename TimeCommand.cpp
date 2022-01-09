@@ -15,7 +15,7 @@ TimeCommand::TimeCommand(const std::vector<std::string>& cmdParams) : Command(cm
  Run the command.
  */
 bool TimeCommand::run(const OrderBook& orderBook) {
-    bool validParams = areParamsValid();
+    bool validParams = areParamsValid(orderBook);
     
     // Invalid parameters, return false.
     if (!validParams)   return validParams;
@@ -29,7 +29,7 @@ bool TimeCommand::run(const OrderBook& orderBook) {
 /*
  Verify that the parameters are valid for this command.
  */
-bool TimeCommand::areParamsValid() {
+bool TimeCommand::areParamsValid(const OrderBook& orderBook) {
     // No parameters allowed for this command.
     return m_params.size() == 0;
 }
