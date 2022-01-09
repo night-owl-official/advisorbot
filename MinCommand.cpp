@@ -20,5 +20,10 @@ bool MinCommand::run(const OrderBook& orderBook) {
  Verify that the parameters are valid for this command.
  */
 bool MinCommand::areParamsValid() {
+    // Needs exactly 2 parameters.
+    if (m_params.size() < 2)    return false;
+    
+    // First parameter needs to be a valid known product.
+    // Second parameter needs to be a valid order type.
     return true;
 }

@@ -24,15 +24,12 @@ public:
      */
     inline std::string getCurrentTimestamp() const { return m_currentTimestamp; }
     
+    inline std::vector<std::string> getProducts() const { return m_knownProducts; }
+    
     /*
      Setters
      */
     inline void setCurrentTimestamp(const std::string& timestamp) { m_currentTimestamp = timestamp; }
-    
-    /*
-     Return a vector of all known products in the dataset.
-     */
-    std::vector<std::string> getKnownProducts() const;
     
     /*
      Return vector of Orders according to the sent filters.
@@ -62,10 +59,17 @@ public:
      Return the lowest price in the order book.
      */
     double getLowestPrice() const;
+    
+private:
+    /*
+     Return a vector of all known products in the dataset.
+     */
+    void setKnownProducts();
 
 private:
-    std::vector<OrderBookEntry> m_orders;   // Store all the orderbook entries
-    std::string m_currentTimestamp;         // The current timestamp in the orderbook.
+    std::vector<OrderBookEntry> m_orders;       // Store all the orderbook entries
+    std::string m_currentTimestamp;             // The current timestamp in the orderbook.
+    std::vector<std::string> m_knownProducts;   // List of all known products.
 };
 
 #endif /* OrderBook_hpp */

@@ -17,22 +17,9 @@
 OrderBook::OrderBook(const std::string& filename) {
     // Read in orders from the CSV file.
     m_orders = CSVParser::readCSV(filename);
-}
-
-/*
- Return a vector of all known products in the dataset.
- */
-std::vector<std::string> OrderBook::getKnownProducts() const {
-    std::vector<std::string> products;
-    std::map<std::string, bool> prodMap;
-
-    // Use a map with the product as key to avoid duplicates.
-    for (const OrderBookEntry& obe : m_orders)  prodMap[obe.getProduct()] = true;
     
-    // Now flatten the map to a vector of strings
-    for (const auto& e : prodMap)   products.push_back(e.first);
-
-    return products;
+    // Store the known products from the dataset.
+    setKnownProducts();
 }
 
 /*
@@ -117,4 +104,17 @@ double OrderBook::getLowestPrice() const {
     }
     
     return min;
+}
+
+/*
+ Return a vector of all known products in the dataset.
+ */
+void OrderBook::setKnownProducts() {
+    std::map<std::string, bool> prodMap;
+
+    // Use a map with the product as key to avoid duplicates.
+    for (const OrderBookEntry& obe : m_orders)  prodMap[obe.getProduct()] = true;
+    
+    // Now flatten the map to a vector of strings
+    for (const auto& e : prodMap)   m_knownProducts.push_back(e.first);
 }

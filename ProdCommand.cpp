@@ -22,7 +22,7 @@ bool ProdCommand::run(const OrderBook& orderBook) {
     
     // Parameters are valid. Display a list
     // of available products.
-    std::vector<std::string> knownProds = orderBook.getKnownProducts();
+    std::vector<std::string> knownProds = orderBook.getProducts();
     for (int i = 0; i < knownProds.size(); ++i) {
         std::cout << knownProds[i];
         
