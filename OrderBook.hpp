@@ -50,6 +50,13 @@ public:
      */
     std::string getNextTime(const std::string& timestamp) const;
     
+    /*
+     Return the last time before the
+     sent time in the orderbook.
+     If there is no last timestamp, wraps around to the end.
+     */
+    std::string getLastTime(const std::string& timestamp) const;
+    
 public:
     /*
      Return the highest price in the given order book.

@@ -77,6 +77,31 @@ std::string OrderBook::getNextTime(const std::string& timestamp) const {
 }
 
 /*
+ Return the last time before the
+ sent time in the orderbook.
+ If there is no last timestamp, wraps around to the end.
+ */
+std::string OrderBook::getLastTime(const std::string& timestamp) const {
+    std::string lastTimestamp = "";
+    std::string currentTimestamp = "";
+    
+    // Find the first timestamp less than the given timestamp
+    for (const OrderBookEntry& obe : m_orders) {
+        currentTimestamp = obe.getTimestamp();
+        if (currentTimestamp < timestamp) {
+            lastTimestamp = currentTimestamp;
+            break;
+        }
+    }
+    
+    // No timestamp is greater than the given timestamp, loop back to the beginning
+    // of the dataset as the given timestamp was the last timestamp.
+    if (lastTimestamp == "")   lastTimestamp = m_orders[m_orders.size() - 1].getTimestamp();
+    
+    return lastTimestamp;
+}
+
+/*
  Return the highest price in the given order book.
  */
 double OrderBook::getHighestPrice(const std::vector<OrderBookEntry>& orders) {

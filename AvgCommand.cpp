@@ -15,7 +15,12 @@ AvgCommand::AvgCommand(const std::vector<std::string>& cmdParams) : Command(cmdP
  Run the command.
  */
 bool AvgCommand::run(const OrderBook& orderBook) {
-    return true;
+    bool validParams = areParamsValid(orderBook);
+    
+    // Invalid parameters, return false
+    if (!validParams)   return validParams;
+    
+    return validParams;
 }
 
 /*
