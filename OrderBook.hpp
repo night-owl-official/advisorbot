@@ -61,6 +61,11 @@ public:
      */
     static double getLowestPrice(const std::vector<OrderBookEntry>& orders);
     
+    /*
+     Return the average price in the given order book.
+     */
+    static double getAveragePrice(const std::vector<OrderBookEntry>& orders);
+    
 private:
     /*
      Return a vector of all known products in the dataset.

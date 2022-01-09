@@ -107,6 +107,21 @@ double OrderBook::getLowestPrice(const std::vector<OrderBookEntry>& orders) {
 }
 
 /*
+ Return the average price in the given order book.
+ */
+double OrderBook::getAveragePrice(const std::vector<OrderBookEntry>& orders) {
+    double avg = 0.0;
+    
+    // Keep adding prices to the average.
+    for (const OrderBookEntry& obe : orders)    avg += obe.getPrice();
+    
+    // Divide by the total entries
+    avg /= orders.size();
+    
+    return avg;
+}
+
+/*
  Return a vector of all known products in the dataset.
  */
 void OrderBook::setKnownProducts() {
