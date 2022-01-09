@@ -19,6 +19,9 @@ AdvisorBot::AdvisorBot(const std::string& csvFilepath):
  Call to start advisorbot.
  */
 void AdvisorBot::init() {
+    // Initialize the current timestamp to the earliest time in the dataset.
+    m_orderBook.setCurrentTimestamp(m_orderBook.getEarliestTime());
+    
     // User input
     std::string userInput = "";
     
@@ -65,6 +68,10 @@ void AdvisorBot::processUserInput(const std::string& input) {
         // Command parameters were wrong.
         std::cout << "Parameters given to the command invalid!" << std::endl;
         std::cout << "advisorbot> Use help <cmd> to get info on a command" << std::endl;
+    } else if (input == "step") {
+        // Update the current timestamp to the next timestamp
+        // when the user used the step command successfully.
+        m_orderBook.setCurrentTimestamp(m_orderBook.getNextTime(m_orderBook.getCurrentTimestamp()));
     }
     
     // Free up the memory after the command has been used.

@@ -25,6 +25,11 @@ public:
     inline std::string getCurrentTimestamp() const { return m_currentTimestamp; }
     
     /*
+     Setters
+     */
+    inline void setCurrentTimestamp(const std::string& timestamp) { m_currentTimestamp = timestamp; }
+    
+    /*
      Return a vector of all known products in the dataset.
      */
     std::vector<std::string> getKnownProducts() const;

@@ -17,9 +17,6 @@
 OrderBook::OrderBook(const std::string& filename) {
     // Read in orders from the CSV file.
     m_orders = CSVParser::readCSV(filename);
-    
-    // current timestamp is earliest time.
-    m_currentTimestamp = getEarliestTime();
 }
 
 /*
