@@ -27,21 +27,9 @@ bool MinCommand::run(const OrderBook& orderBook) {
     // The min price in the filtered orderbook.
     double minPrice = OrderBook::getLowestPrice(filteredOrders);
     
-    // Convert orderbooktype to string
-    std::string orderTypeString = "";
-    switch (m_orderType) {
-        case OrderBookType::bid:
-            orderTypeString = "bid";
-            break;
-        case OrderBookType::ask:
-            orderTypeString = "ask";
-            break;
-        default:
-            break;
-    }
-    
     // Display min price.
-    std::cout << "The min " << orderTypeString << " price for " << m_product << " is " << minPrice << std::endl;
+    std::cout << "The min " << OrderBookEntry::OrderBookTypeToString(m_orderType) <<
+        " price for " << m_product << " is " << minPrice << std::endl;
     
     return validParams;
 }

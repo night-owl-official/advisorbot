@@ -28,3 +28,19 @@ OrderBookType OrderBookEntry::stringToOrderBookType(const std::string& typeStrin
     
     return OrderBookType::unknown;
 }
+
+/*
+ Convert an order book type e.g. bid or ask to a string.
+ */
+std::string OrderBookEntry::OrderBookTypeToString(const OrderBookType& typeString) {
+    switch (typeString) {
+        case OrderBookType::bid:
+            return "bid";
+        case OrderBookType::ask:
+            return "ask";
+        default:
+            return "";
+    }
+    
+    return "";
+}

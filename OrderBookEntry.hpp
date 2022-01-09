@@ -39,6 +39,11 @@ public:
     static OrderBookType stringToOrderBookType(const std::string& typeString);
     
     /*
+     Convert an order book type e.g. bid or ask to a string.
+     */
+    static std::string OrderBookTypeToString(const OrderBookType& typeString);
+    
+    /*
      Compare two order books entries by timestamp.
      */
     inline static bool compareByTimestamp(const OrderBookEntry& entry1, const OrderBookEntry& entry2) {
