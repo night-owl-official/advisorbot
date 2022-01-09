@@ -20,6 +20,21 @@ bool AvgCommand::run(const OrderBook& orderBook) {
     // Invalid parameters, return false
     if (!validParams)   return validParams;
     
+    std::string currentTimestamp = orderBook.getCurrentTimestamp();
+    double totalAvg = 0.0;
+    
+    for (int i = 0; i < m_timesteps; ++i) {
+        totalAvg += orderBook.getAveragePrice(orderBook.getOrders(m_orderType, m_product, currentTimestamp));
+        currentTimestamp = orderBook.getLastTime(currentTimestamp);
+    }
+    
+    totalAvg /= m_timesteps;
+    
+    std::cout << "The average " << m_product << " " <<
+        OrderBookEntry::OrderBookTypeToString(m_orderType) <<
+        " price over the last " << m_timesteps <<
+        " timesteps was " << totalAvg << std::endl;
+    
     return validParams;
 }
 
