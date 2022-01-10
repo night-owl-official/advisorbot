@@ -7,13 +7,45 @@
 
 #include "PredictCommand.hpp"
 
+#include <iostream>
+
 PredictCommand::PredictCommand(const std::vector<std::string>& cmdParams) : Command(cmdParams) {}
 
 /*
  Run the command.
  */
 bool PredictCommand::run(const OrderBook& orderBook) {
-    return true;
+    bool validParams = areParamsValid(orderBook);
+    
+    // Invalid parameters, return false
+    if (!validParams)   return validParams;
+    
+    // Start looking at the current timestamp
+    std::string currentTimestamp = orderBook.getCurrentTimestamp();
+    double totalMaxMinPrice = 0.0;
+    
+    // Go back 5 timesteps to check the last max or min prices.
+    for (int i = 0; i < 5; ++i) {
+        // Get the highest or lowest price based on user input
+        // Add up the highest/lowest prices of orders from the filtered orderbook together for the last 5 timesteps
+        if (m_orderPriceValue == "min") {
+            totalMaxMinPrice += orderBook.getLowestPrice(orderBook.getOrders(m_orderType, m_product, currentTimestamp));
+        } else if (m_orderPriceValue == "max") {
+            totalMaxMinPrice += orderBook.getHighestPrice(orderBook.getOrders(m_orderType, m_product, currentTimestamp));
+        }
+        
+        // Update the current timestep to the last timestamp
+        currentTimestamp = orderBook.getLastTime(currentTimestamp);
+    }
+    
+    // Divide the total by the amount of timesteps
+    totalMaxMinPrice /= 5;
+    
+    std::cout << "The predicted " << m_product << " " << m_orderPriceValue <<
+        " " << OrderBookEntry::OrderBookTypeToString(m_orderType) <<
+        " price for the next timestep is " << totalMaxMinPrice << std::endl;
+    
+    return validParams;
 }
 
 /*
@@ -39,7 +71,7 @@ bool PredictCommand::areParamsValid(const OrderBook& orderBook) {
     for (const std::string& prod : orderBook.getProducts()) {
         if (m_params[1] == prod) {
             // Store the valid product
-            m_product = m_params[0];
+            m_product = m_params[1];
             secondParamIsValid = true;
         }
     }
