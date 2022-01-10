@@ -20,14 +20,19 @@ bool AvgCommand::run(const OrderBook& orderBook) {
     // Invalid parameters, return false
     if (!validParams)   return validParams;
     
+    // Start looking at the current timestamp
     std::string currentTimestamp = orderBook.getCurrentTimestamp();
     double totalAvg = 0.0;
     
+    // Go back as many timesteps as the user wants
     for (int i = 0; i < m_timesteps; ++i) {
+        // Keep adding the average prices from filtered order books on top of the total average
         totalAvg += orderBook.getAveragePrice(orderBook.getOrders(m_orderType, m_product, currentTimestamp));
+        // Update the current timestep to the last timestamp
         currentTimestamp = orderBook.getLastTime(currentTimestamp);
     }
     
+    // Divide the total by the amount of timesteps
     totalAvg /= m_timesteps;
     
     std::cout << "The average " << m_product << " " <<
