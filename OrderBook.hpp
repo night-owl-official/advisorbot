@@ -39,6 +39,12 @@ public:
                                           const std::string& timestamp) const;
     
     /*
+     Return vector of Orders according to the sent filters.
+     */
+    std::vector<OrderBookEntry> getOrders(OrderBookType type,
+                                          const std::string& timestamp) const;
+    
+    /*
      Return the earliest time in the orderbook.
      */
     std::string getEarliestTime() const;

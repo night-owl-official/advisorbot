@@ -44,6 +44,23 @@ std::vector<OrderBookEntry> OrderBook::getOrders(OrderBookType type,
     return filtered_orders;
 }
 
+std::vector<OrderBookEntry> OrderBook::getOrders(OrderBookType type,
+                                                 const std::string& timestamp) const {
+    std::vector<OrderBookEntry> filtered_orders;
+    
+    // Go through the orders and only select orders
+    // that match the given filters.
+    for (const OrderBookEntry& obe : m_orders) {
+        
+        if (obe.getOrderBookType() == type &&
+            obe.getTimestamp() == timestamp ) {
+                filtered_orders.push_back(obe);
+            }
+    }
+    
+    return filtered_orders;
+}
+
 /*
  Return the earliest time in the orderbook.
  */
