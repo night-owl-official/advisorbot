@@ -164,6 +164,21 @@ double OrderBook::getAveragePrice(const std::vector<OrderBookEntry>& orders) {
 }
 
 /*
+ Return the top Orderbook entry in the given order book.
+ */
+OrderBookEntry OrderBook::getTopEntry(const std::vector<OrderBookEntry>& orders) {
+    // First top entry is the first order in the orderbook.
+    OrderBookEntry top = orders[0];
+    
+    // Look into all the orders and find the entry with the highest price in the orderbook.
+    for (const OrderBookEntry& obe : orders) {
+        if (obe.getPrice() > top.getPrice())   top = obe;
+    }
+    
+    return top;
+}
+
+/*
  Return a vector of all known products in the dataset.
  */
 void OrderBook::setKnownProducts() {

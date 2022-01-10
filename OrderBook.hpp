@@ -79,6 +79,11 @@ public:
      */
     static double getAveragePrice(const std::vector<OrderBookEntry>& orders);
     
+    /*
+     Return the top Orderbook entry in the given order book.
+     */
+    static OrderBookEntry getTopEntry(const std::vector<OrderBookEntry>& orders);
+    
 private:
     /*
      Return a vector of all known products in the dataset.

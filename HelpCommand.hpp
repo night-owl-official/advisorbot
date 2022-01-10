@@ -39,7 +39,7 @@ private:
     void initCommandsHelpMap();
     
 private:
-    static const std::string AVAILABLE_COMMANDS[9]; // List of available commands.
+    static const std::string AVAILABLE_COMMANDS[10]; // List of available commands.
     
 private:
     std::map<std::string, std::string> m_commandsHelpMap;   // Maps command to help description.

@@ -21,6 +21,7 @@
 		EB3FB2FA27889FE0007706A7 /* CSVParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB3FB2F827889FE0007706A7 /* CSVParser.cpp */; };
 		EB3FB2FD2788A128007706A7 /* OrderBookEntry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB3FB2FB2788A128007706A7 /* OrderBookEntry.cpp */; };
 		EB3FB3002788C00F007706A7 /* OrderBook.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB3FB2FE2788C00F007706A7 /* OrderBook.cpp */; };
+		EB3FB303278BD953007706A7 /* TopCommand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB3FB301278BD953007706A7 /* TopCommand.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -65,6 +66,8 @@
 		EB3FB2FC2788A128007706A7 /* OrderBookEntry.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = OrderBookEntry.hpp; sourceTree = SOURCE_ROOT; };
 		EB3FB2FE2788C00F007706A7 /* OrderBook.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = OrderBook.cpp; sourceTree = SOURCE_ROOT; };
 		EB3FB2FF2788C00F007706A7 /* OrderBook.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = OrderBook.hpp; sourceTree = SOURCE_ROOT; };
+		EB3FB301278BD953007706A7 /* TopCommand.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TopCommand.cpp; sourceTree = SOURCE_ROOT; };
+		EB3FB302278BD953007706A7 /* TopCommand.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TopCommand.hpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +100,8 @@
 		EB3FB2C827849BF7007706A7 /* advisorbot */ = {
 			isa = PBXGroup;
 			children = (
+				EB3FB301278BD953007706A7 /* TopCommand.cpp */,
+				EB3FB302278BD953007706A7 /* TopCommand.hpp */,
 				EB3FB2FE2788C00F007706A7 /* OrderBook.cpp */,
 				EB3FB2FF2788C00F007706A7 /* OrderBook.hpp */,
 				EB3FB2FB2788A128007706A7 /* OrderBookEntry.cpp */,
@@ -197,6 +202,7 @@
 				EB3FB2CA27849BF7007706A7 /* main.cpp in Sources */,
 				EB3FB2FA27889FE0007706A7 /* CSVParser.cpp in Sources */,
 				EB3FB2F1278749FD007706A7 /* PredictCommand.cpp in Sources */,
+				EB3FB303278BD953007706A7 /* TopCommand.cpp in Sources */,
 				EB3FB2E5278749AD007706A7 /* ProdCommand.cpp in Sources */,
 				EB3FB2EB278749D4007706A7 /* MaxCommand.cpp in Sources */,
 				EB3FB2F727874A17007706A7 /* StepCommand.cpp in Sources */,

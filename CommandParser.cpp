@@ -15,6 +15,7 @@
 #include "PredictCommand.hpp"
 #include "TimeCommand.hpp"
 #include "StepCommand.hpp"
+#include "TopCommand.hpp"
 
 /*
  Get a Command from a command string.
@@ -39,6 +40,7 @@ Command* CommandParser::getCommand(const std::string& commandString) {
     else if (commandBits[0] == "predict")   nop_command = new PredictCommand{commandParameters};
     else if (commandBits[0] == "time")      nop_command = new TimeCommand{commandParameters};
     else if (commandBits[0] == "step")      nop_command = new StepCommand{commandParameters};
+    else if (commandBits[0] == "top")       nop_command = new TopCommand{commandParameters};
     
     // There's a chance that a nullpointer could be returned
     // In that case it simply means the given command is not correct

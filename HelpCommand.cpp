@@ -10,7 +10,7 @@
 #include <iostream>
 
 // Available commands.
-const std::string HelpCommand::AVAILABLE_COMMANDS[9] = {
+const std::string HelpCommand::AVAILABLE_COMMANDS[10] = {
     "help",
     "help <cmd>",
     "prod",
@@ -19,7 +19,8 @@ const std::string HelpCommand::AVAILABLE_COMMANDS[9] = {
     "avg",
     "predict",
     "time",
-    "step"
+    "step",
+    "top"
 };
 
 HelpCommand::HelpCommand(const std::vector<std::string>& cmdParams) : Command(cmdParams) {
@@ -111,4 +112,5 @@ void HelpCommand::initCommandsHelpMap() {
     m_commandsHelpMap[AVAILABLE_COMMANDS[6]] = "predict max ETH/BTC bid -> predict the max ETH/BTC bid price in the next timestep";
     m_commandsHelpMap[AVAILABLE_COMMANDS[7]] = "time -> state the current time in the dataset e.g. 2020/03/17 17:01:24";
     m_commandsHelpMap[AVAILABLE_COMMANDS[8]] = "step -> move to the next timestep";
+    m_commandsHelpMap[AVAILABLE_COMMANDS[9]] = "top ask -> top ask price in the dataset for any product in the current timestamp";
 }
