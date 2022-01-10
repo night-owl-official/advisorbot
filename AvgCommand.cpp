@@ -48,7 +48,7 @@ bool AvgCommand::run(const OrderBook& orderBook) {
  */
 bool AvgCommand::areParamsValid(const OrderBook& orderBook) {
     // Needs exactly 3 parameters.
-    if (m_params.size() < 3)    return false;
+    if (m_params.size() != 3)    return false;
     
     // Flags to set decide whether all params are valid
     bool firstParamIsValid = false;

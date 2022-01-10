@@ -39,7 +39,7 @@ bool MaxCommand::run(const OrderBook& orderBook) {
  */
 bool MaxCommand::areParamsValid(const OrderBook& orderBook) {
     // Needs exactly 2 parameters.
-    if (m_params.size() < 2)    return false;
+    if (m_params.size() != 2)    return false;
     
     // Flags to set decide whether both params are valid
     bool firstParamIsValid = false;

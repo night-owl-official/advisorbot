@@ -10,11 +10,14 @@
 #include "CSVParser.hpp"
 
 #include <map>
+#include <iostream>
 
 /*
  Initialize order book from a csv file.
  */
 OrderBook::OrderBook(const std::string& filename) {
+    std::cout << "advisorbot> Analyzing data..." << std::endl;
+    
     // Read in orders from the CSV file.
     m_orders = CSVParser::readCSV(filename);
     
